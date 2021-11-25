@@ -1,5 +1,5 @@
 import { useEffect } from "react"
-import API from "./apiKey";
+import API from "../apiKey.js"
 
 function Prueba(props) {
 
