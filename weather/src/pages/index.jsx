@@ -1,11 +1,12 @@
 import react from "react"
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import ButtonWeather from "../components/buttonweather.jsx";
 import Prueba from "../components/pruebas.jsx";
 import API from "../apiKey.js"
+import { TempContext } from "../context/tempContext.js";
 
 function Main() {
-    let [prueba2, setprueba2] = useState('');
+    const [temp, settemp] =  useContext(TempContext);
     let [ciudad, setciudad] = useState('madrid');
     let[lat,setLat]=useState('');
     let[long,setLong]=useState('');
@@ -13,8 +14,8 @@ function Main() {
     // geolocalizacion
     let options = {
         enableHighAccuracy: true,
-        timeout: 5000,
-        maximumAge: Infinity
+        
+        maximumAge:Infinity
       };
     function error(err) {
         console.warn('ERROR(' + err.code + '): ' + err.message);
@@ -40,7 +41,7 @@ function Main() {
             console.log(r)
             
 
-            let hourly = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&units=metric&appid=${API}`)
+            let hourly = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&units=${temp}&appid=${API}`)
             let hour = await hourly.json();
             // setprueba2(`http://openweathermap.org/img/wn/${hour.current.weather[0].icon}@2x.png`)
             console.log(hour)
@@ -49,7 +50,7 @@ function Main() {
         }
         fetchData();
 
-    }, [ciudad,lat,long]);
+    }, [ciudad,lat,long,temp]);
 
 
 
@@ -61,6 +62,12 @@ function Main() {
 
     }
 
+    
+    const handleClick=e=>{
+        temp==='metric'? settemp('imperial'):settemp('metric')
+        console.log(temp)
+    }
+
     return (
         <div>
             <form onSubmit={buscador} action="">
@@ -69,7 +76,8 @@ function Main() {
             </form>
             <p>{ciudad}</p>
             <img src="" alt="" />
-            <ButtonWeather></ButtonWeather>
+            <button onClick={handleClick}>holaa</button>
+            <ButtonWeather onClick={handleClick}></ButtonWeather>
             {/* <Prueba ciudad={ciudad}></Prueba> */}
         </div>
 
