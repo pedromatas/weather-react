@@ -1,0 +1,16 @@
+.header-card{
+    display:'flex';
+    justify-content:'space-between'
+}
+.contenedor-grados{
+    display: flex;
+}
+.vl{
+    border-left: 2px solid #FFC13D;
+  height: 5rem;
+  margin-left: 25%;
+}
+.card-temp-footer{
+    display: 'flex';
+     justify-content: 'space-between'
+}

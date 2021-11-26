@@ -1,7 +1,9 @@
-import { useEffect } from "react"
+import { useEffect,useState } from "react"
 import API from "../apiKey.js"
 
 function Prueba(props) {
+
+let [prueba2,setprueba2]= useState('');
 
     useEffect(() => {
 
@@ -23,7 +25,9 @@ function Prueba(props) {
 
             let hourly = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&units=metric&appid=${API}`)
             let hour = await hourly.json();
+           setprueba2(`http://openweathermap.org/img/wn/${hour.current.weather[0].icon}@2x.png`)
             console.log(hour)
+            console.log()
 
         }
         fetchData();
@@ -33,7 +37,8 @@ function Prueba(props) {
 
 
     return (
-        <p>asfd</p>
+      <img src={prueba2} alt="" />
+    
     )
 }
 
