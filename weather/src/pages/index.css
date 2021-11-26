@@ -1,0 +1,19 @@
+.buscador{
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: hidden;
+    
+    width:350px;
+    padding: 0 25px;
+    height: 48px;
+    border-radius: 32px;
+    background-color: #24446D;
+    color: white;
+  
+}
+::placeholder {
+    color: white;
+    opacity: 1;
+  }
+  
