@@ -3,13 +3,17 @@ import './App.css';
 import Main from './pages/index.jsx';
 import { TempProvider } from './context/temp.provider';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { dark } from '@mui/material/styles/createPalette';
 const theme= createTheme({
 
   palette:{
-
+    primary:{
+      main:'#24446D'
+    },
 
     secondary:{
       main: '#FFFFFF'
+     
     }
   }  
 })

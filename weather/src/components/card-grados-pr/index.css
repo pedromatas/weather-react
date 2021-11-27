@@ -12,5 +12,11 @@
 }
 .card-temp-footer{
     display: 'flex';
-     justify-content: 'space-between'
+    display: inline;
+     
+    
+
+}
+.descripcion{
+    display: block;
 }

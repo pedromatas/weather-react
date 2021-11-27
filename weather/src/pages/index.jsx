@@ -4,8 +4,12 @@ import API from "../apiKey.js"
 import { TempContext } from "../context/tempContext.js";
 import ToggleButtonWeather from "../components/toggleButtonWeather.jsx";
 import './index.css';
-import { Grid } from "@mui/material";
+import { Grid,Box } from "@mui/material";
 import CardGrados from "../components/card-grados-pr/card-grados.jsx";
+import CardInfo from "../components/card-infotemp/card-info.jsx";
+import ChipDias from "../components/chip-dias/chip-dias.jsx";
+import CardDias from "../components/card-dias/card-dias.jsx";
+import CardMapa from "../components/card-mapa/card-mapa.jsx";
 
 
 function Main() {
@@ -13,7 +17,9 @@ function Main() {
     let [ciudad, setciudad] = useState('madrid');
     let [lat, setLat] = useState('');
     let [long, setLong] = useState('');
-
+    let [ciudadDia, setfetch] = useState({});
+    let [fetchHora, setfetchHora] = useState({});
+    let fecha = {};
 
 
 
@@ -30,10 +36,12 @@ function Main() {
             setLong(position.coords.longitude);
             async function fetchData() {
 
-                let hourly = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=${temp}&appid=${API}`)
+                let hourly = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${position.coords.latitude}&lon=${position.coords.longitude}&lang=es&units=${temp}&appid=${API}`)
                 let hour = await hourly.json();
                 // setprueba2(`http://openweathermap.org/img/wn/${hour.current.weather[0].icon}@2x.png`)
                 console.log(hour, 'asjdajf')
+                setfetchHora(hour);
+                console.log(fetchHora, 'primer fetch')
 
 
             }
@@ -54,7 +62,7 @@ function Main() {
 
             let prueba = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${e.target.textCiudad.value}&appid=${API}`)
             let r = await prueba.json();
-
+            setfetch(r)
             console.log(r)
 
             setLat(r.coord.lat);
@@ -66,6 +74,7 @@ function Main() {
 
             let hourly = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${r.coord.lat}&lon=${r.coord.lon}&units=${temp}&appid=${API}`)
             let hour = await hourly.json();
+            setfetchHora(hour);
             // setprueba2(`http://openweathermap.org/img/wn/${hour.current.weather[0].icon}@2x.png`)
             console.log(hour, 'zimbaue')
         }
@@ -86,6 +95,7 @@ function Main() {
             let hourly = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&units=${metrica}&appid=${API}`)
             let hour = await hourly.json();
             // setprueba2(`http://openweathermap.org/img/wn/${hour.current.weather[0].icon}@2x.png`)
+            setfetchHora(hour)
             console.log(hour)
         }
         fetchData()
@@ -93,6 +103,7 @@ function Main() {
 
     return (
         <div>
+             <Box sx={{ margin: '0 auto 16px' }}>
             <Grid container spacing={2} direction="column">
                 <Grid item container spacing={2}>
 
@@ -114,20 +125,42 @@ function Main() {
                 <Grid item container spacing={2}>
 
                     <Grid item xs={6}>
-                       <CardGrados></CardGrados>
+                        <CardGrados ciudad={ciudadDia} ciudadHoras={fetchHora}></CardGrados>
                     </Grid>
                     <Grid item xs={3}>
-                       
+                        <CardInfo ciudad={ciudadDia} ciudadHoras={fetchHora}></CardInfo>
 
                     </Grid>
                     <Grid item xs={3}>
-                        
+                        <CardMapa></CardMapa>
                     </Grid>
 
                 </Grid>
+                <div className="contenedor-semana">
+                    
+                    <Grid item container spacing={2} xs={12} sx={{ overflowX:"auto"}}>
+                {fetchHora.daily?.map(d=>
+                     <Grid item xs={2}>
+                        <ChipDias dia={d}></ChipDias>
+                    </Grid>
+                    )}
+                
+
+                </Grid>
+                <Grid item xs={12} container spacing={2} sx={{ overflowX:"auto"}}>
+                {fetchHora.daily?.map(d=>
+                     <Grid item xs={2}>
+                        <CardDias dia={d}></CardDias>
+                    </Grid>
+                    )}
+                
+
+                </Grid> 
+                </div>
+               
             </Grid>
 
-
+            </Box>
             {/* <Prueba ciudad={ciudad}></Prueba> */}
         </div>
 
