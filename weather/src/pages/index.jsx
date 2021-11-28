@@ -10,6 +10,10 @@ import CardInfo from "../components/card-infotemp/card-info.jsx";
 import ChipDias from "../components/chip-dias/chip-dias.jsx";
 import CardDias from "../components/card-dias/card-dias.jsx";
 import CardMapa from "../components/card-mapa/card-mapa.jsx";
+import fondo from "../static/assets/GIFS/videofinal.gif";
+import lupa from "../static/assets/ICONS_1X/RESTO DE ICONOS/Buscar.svg";
+import Aeonik_regular from "../static/assets/TIPOGRAFIA/Aeonik-Regular.woff"
+import Aeonik_bold from "../static/assets/TIPOGRAFIA/Aeonik-Bold.woff"
 
 
 function Main() {
@@ -82,6 +86,10 @@ function Main() {
 
     }
 
+    function capitalizarPrimeraLetra(str) {
+        return str?.charAt(0).toUpperCase() + str?.slice(1);
+    }
+
     let metrica = '';
     const handleClick = e => {
         temp === 'metric' ? metrica = 'imperial' : metrica = 'metric';
@@ -100,31 +108,50 @@ function Main() {
         }
         fetchData()
     }
+    function calcfecha(timestamp) {
+        let options = {
+            hour: "2-digit",
+            minute: "2-digit"
+
+
+        };
+
+
+        let fecha = timestamp;
+
+        fecha = new Date(timestamp * 1000).toLocaleTimeString("es",options);
+
+
+        return fecha
+    }
 
     return (
-        <div>
-             <Box sx={{ margin: '0 auto 16px' }}>
+        <div className="contenedor-general">
+          
             <Grid container spacing={2} direction="column">
-                <Grid item container spacing={2}>
+                <Grid item container>
 
-                    <Grid item xs={1.2}>
-                        <ToggleButtonWeather click={handleClick}></ToggleButtonWeather>
+                    <Grid item xs={1.2} >
+                        <ToggleButtonWeather click={handleClick} sx={{height:"48"}}></ToggleButtonWeather>
                     </Grid>
-                    <Grid item xs={6}>
-                        <p>{ciudad}</p>
+                   
+                    <Grid item xs={6} sx={{display:"flex"}}>
+                        <p className="texto-ciudad">{capitalizarPrimeraLetra(ciudad) },{calcfecha(fetchHora.current?.dt)}h</p>
 
                     </Grid>
                     <Grid item xs={4}>
-                        <form onSubmit={buscador} action="">
+                        <form onSubmit={buscador} action="" className="form">
+                           
                             <input type="text" name="textCiudad" className="buscador" placeholder="Buscar..." />
                             {/* <button type="submit">Buscador</button> */}
+                             <input type="image" src={lupa} className="lupa"/>
                         </form>
                     </Grid>
 
                 </Grid>
-                <Grid item container spacing={2}>
+                <Grid item container >
 
-                    <Grid item xs={6}>
+                    <Grid item xs={5.4}>
                         <CardGrados ciudad={ciudadDia} ciudadHoras={fetchHora}></CardGrados>
                     </Grid>
                     <Grid item xs={3}>
@@ -136,31 +163,35 @@ function Main() {
                     </Grid>
 
                 </Grid>
-                <div className="contenedor-semana">
+                <div className="contenedor-semana scroll1">
                     
-                    <Grid item container spacing={2} xs={12} sx={{ overflowX:"auto"}}>
-                {fetchHora.daily?.map(d=>
-                     <Grid item xs={2}>
+                    <div className="contenedor-dias">
+                          {fetchHora.daily?.map(d=>
+                     
                         <ChipDias dia={d}></ChipDias>
-                    </Grid>
+                    
                     )}
                 
+                    </div>
+              
 
-                </Grid>
-                <Grid item xs={12} container spacing={2} sx={{ overflowX:"auto"}}>
-                {fetchHora.daily?.map(d=>
-                     <Grid item xs={2}>
+                    <div className="contenedor-cards">
+                         {fetchHora.daily?.map(d=>
+                   
                         <CardDias dia={d}></CardDias>
-                    </Grid>
+                   
                     )}
                 
+                    </div>
+                
+               
 
-                </Grid> 
+              
                 </div>
                
             </Grid>
 
-            </Box>
+         
             {/* <Prueba ciudad={ciudad}></Prueba> */}
         </div>
 

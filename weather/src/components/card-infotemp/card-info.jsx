@@ -20,7 +20,7 @@ export default function CardInfo(props) {
 
     return (
 
-        <Card color="primary" sx={{ maxWidth: 345, background: "#24446D", color: "#EEEEEE" }}>
+        <Card color="primary" sx={{ maxWidth: 254, maxHeight: "360px", borderRadius: "2rem", padding: "32px 23px 64px 23px", background: "#24446D", color: "#EEEEEE" }}>
             <CardActionArea sx={{ display: 'block' }} >
                 {/* <Typography component="div" variant="p" sx={{ height: "46", display: 'flex', justifyContent: 'space-between', margin: 1 }}>
                     <img src={grados} alt="" className="img" />
@@ -30,39 +30,58 @@ export default function CardInfo(props) {
 
 
                 </Typography> */}
-                <div className="contenedor-info">
+                <div className="contenedor-info img-humedad">
                     <div className="icono">
-                         <img src={grados} alt="" className="img" />
+                        <img src={grados} alt="" className="img" />
                     </div>
-                   
+
                     <div className="contenedor-texto">
-                          <p> Sensación térmica</p>
-                    <p>{'\n' + props.ciudadHoras.current?.feels_like}</p>
+                        <p> Sensación térmica</p>
+                        <p className="p-numero">{ props.ciudadHoras.current?.feels_like}º</p>
 
                     </div>
-                 
+
 
                 </div>
-                <Typography component="div" variant="p" sx={{ display: 'flex', justifyContent: 'space-between', margin: 1 }}>
-                    <img src={humedad} alt="" className="img" />
+                <div className="contenedor-info img-humedad">
+                    <div className="icono">
+                        <img src={humedad} alt="" className="img " />
+                    </div>
 
-                    Humedad{"\n"}
-                    <Typography component="div" variant="p" sx={{ display: "block" }}>
-                        {'\n' + props.ciudadHoras.current?.humidity + '\n'}
-                    </Typography>
+                    <div className="contenedor-texto">
+                        <p>Humedad</p>
+                        <p className="p-numero">{ props.ciudadHoras.current?.humidity}%</p>
 
-                </Typography>
-                <Typography component="div" variant="p" sx={{ display: 'flex', justifyContent: 'space-between', margin: 1 }}>
-                    <img src={uv} alt="" className="img" />
-                    Índice de UV
-                    {'\n' + props.ciudadHoras.current?.uvi}
-                </Typography>
-                <Typography component="div" variant="p" sx={{ display: 'flex', justifyContent: 'space-between', margin: 1 }}>
-                    <img src={viento} alt="" className="img" />
-                    Viento
-                    {'\n' + props.ciudadHoras.current?.wind_speed + ' km/h'}
-                </Typography>
+                    </div>
 
+
+                </div>
+                <div className="contenedor-info img-humedad">
+                    <div className="icono">
+                        <img src={uv} alt="" className="img " />
+                    </div>
+
+                    <div className="contenedor-texto">
+                        <p>  Índice de UV</p>
+                        <p className="p-numero">{ props.ciudadHoras.current?.uvi} de 10</p>
+
+                    </div>
+
+
+                </div>
+                <div className="contenedor-info img-humedad">
+                    <div className="icono">
+                        <img src={viento} alt="" className="img " />
+                    </div>
+
+                    <div className="contenedor-texto">
+                        <p className="p-numero">Viento</p>
+                        <p className="p-numero">{props.ciudadHoras.current?.wind_speed} km/h</p>
+
+                    </div>
+
+
+                </div>
 
 
             </CardActionArea>

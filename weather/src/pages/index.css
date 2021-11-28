@@ -1,3 +1,14 @@
+*{
+    
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+    
+}
+
 .buscador{
     border-top-style: hidden;
     border-right-style: hidden;
@@ -20,10 +31,74 @@
 .contenedor-semana{
     
    
+  display: block;
+  overflow-x: scroll;
+  scrollbar-color: blue;
+  scrollbar-width: 300px;
+  width: 1440px;
+  margin-left: 1rem;
+  margin-top: 1rem;
+  
     
-    FLOAT: bottom;
-   
-    padding: 1%;
-    overflow:scroll;
      
+}
+
+  .scroll1::-webkit-scrollbar {
+    width: 100px;
+    
+   
+  }
+  
+   
+  .scroll1::-webkit-scrollbar-thumb {
+    background: #24446D;
+    border-radius: 20px;
+  }
+  
+  .scroll1::-webkit-scrollbar-track {
+    background: white;
+    border-radius: 80px;
+  }
+
+.contenedor-dias{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.contenedor-cards{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.contenedor-general{
+    background-image: url(../static/assets/GIFS/videofinal.gif);
+    background-size: 100%;
+    padding-Left:166px;
+    padding-Right:166px;
+    padding-top: 81px;
+    padding-bottom: 81px;
+ 
+  
+}
+
+.texto-ciudad{
+    color: white;
+    font-size: 24px;
+    align-items: left;
+   margin-top: 0.5rem;
+ 
+  
+}
+.form{
+    position: relative;
+}
+
+.lupa{
+    position: absolute;
+    left: 80%;
+    top: 25%;
 }

@@ -15,8 +15,8 @@ import d10 from '../../static/assets/ICONS_1X/ICONS_DAY/10d.png';
 import d11 from '../../static/assets/ICONS_1X/ICONS_DAY/11d.png';
 import d13 from '../../static/assets/ICONS_1X/ICONS_DAY/13d.png';
 import d50 from '../../static/assets/ICONS_1X/ICONS_DAY/50d.png';
-import maxIcon from "../../static/assets/ICONS_1X/RESTO DE ICONOS/max.png";
-
+import maxIcon from "../../static/assets/ICONS_1X/RESTO DE ICONOS/Maxtemp.svg";
+import minIcon from "../../static/assets/ICONS_1X/RESTO DE ICONOS/Mintemp.svg";
 
 export default function CardDias(props) {
 
@@ -76,44 +76,27 @@ export default function CardDias(props) {
     }
     return (
 
-        <Card color="secondary" sx={{ maxWidth: 345, background: "#24446D", color: "#EEEEEE" }}>
+        <Card color="secondary" sx={{minWidth:"160px",maxWidth:"160px", width: "160px",marginRight:"2.38rem",height:"263px",padding:"20px 21px 0px 21px", background: "#24446D", color: "#EEEEEE",borderRadius:"2rem" }}>
             <CardActionArea sx={{ display: 'block' }} >
-                <Typography component="div" variant="p" sx={{ display: 'block', justifyContent: 'space-between', margin: 1 }}>
+                <Typography component="div" variant="p" sx={{ display: 'block', fontSize:"19px"}}>
 
                     {fecha(props.dia?.dt).toUpperCase()}
                     <div className="hl"></div>
+                    <img src={imagen(props.dia?.weather[0].icon)} alt="" className="img-temp" />
                     {/* {'\n'+props.ciudadHoras.current?.feels_like}  */}
-                    <CardMedia
-                        component="img"
-                        height="140"
-                        image={imagen(props.dia?.weather[0].icon) }
-
-
-                    />
+                   
                 </Typography>
-                <Typography component="div" variant="p" sx={{ display: 'flex', justifyContent: 'space-between', margin: 1 }}>
+                <Typography component="div" variant="p" sx={{ display: 'flex', justifyContent: 'center'}}>
 
-
-
-                    <CardMedia
-                        component="img"
-                        height="40"
-                        image={maxIcon}
-
-
-                    />{props.dia?.temp.max}
+                    <img src={maxIcon} alt="" />
+                    <p >{Math.round(props.dia?.temp.max)}º</p>
+                   
                 </Typography>
-                <Typography component="div" variant="p" sx={{ display: 'flex', justifyContent: 'space-between', margin: 1 }}>
+                <Typography component="div" variant="p" sx={{ display: 'flex', justifyContent: 'center',marginTop:"16px" }}>
 
-
-
-                    <CardMedia
-                        component="img"
-                        height="40"
-                        image="/static/images/cards/contemplative-reptile.jpg"
-
-
-                    />{props.dia?.temp.min}
+                <img src={minIcon} alt="" />
+                <p className="p-temp">{Math.round(props.dia?.temp.min) }º</p>
+                  
                 </Typography>
 
 

@@ -1,15 +1,24 @@
 .img{
     height:"20";
     width:"10";
+    margin-top: 2px;
+    margin-left: 7px;
+}
+.img-humedad{
+    margin-top: 33.7px;
 }
 .contenedor-info{
     display: flex;
 }
 .contenedor-texto{
     display: block;
+    margin-left: 54px;
     
 }
 .icono{
     height: 20px;
     width: 10px;
+}
+.p-numero{
+    display: flex;
 }

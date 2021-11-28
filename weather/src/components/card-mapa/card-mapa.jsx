@@ -19,22 +19,16 @@ export default function CardMapa(props) {
     function contador(){
 
     }
+  
 
     return (
       
-        <Card color="secondary" sx={{ maxWidth: 345, background:"#24446D" , color:"#FFC13D" }}>
+        <Card color="secondary" sx={{ maxWidth: 255,maxHeight:360, background:"#24446D" , color:"#FFC13D", borderRadius:"2rem",padding: "32px 23px 64px 23px" }}>
             <CardActionArea sx={{ display: 'block'}} >
-            <CardMedia sx={{ marginLeft: 4 }}
-                        component="img"
-                        height="140"
-                        image={gif}
-
-
-                    />
-                <Typography component="div" variant="p" sx={{ display: 'flex', justifyContent: 'space-between', margin: 1 }}>
+                    <img src={gif} alt="" className="gif"/>
+                <Typography component="div" variant="p" sx={{  width:"11.063rem" , marginLeft:"2.3rem" ,fontSize:"19px",marginTop:"14px"}}>
               
-                    Sensación térmica
-                    {'\n'+props.ciudadHoras?.current?.feels_like}
+                   Queda 1h 45min para llegar a tu destino
                 </Typography>
 
 

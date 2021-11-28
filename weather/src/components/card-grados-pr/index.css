@@ -7,8 +7,9 @@
 }
 .vl{
     border-left: 2px solid #FFC13D;
-  height: 5rem;
-  margin-left: 25%;
+  height: 9.438rem;
+  margin-left: 2.375rem;
+  
 }
 .card-temp-footer{
     display: 'flex';
@@ -19,4 +20,22 @@
 }
 .descripcion{
     display: block;
+}
+
+.card_img-temp{
+    height: 11.5rem;
+    width: 11.5rem;
+    margin-left: 3.875rem;
+}
+
+.p-desc{
+    width: 15rem;
+   text-align: left;
+   margin-left: 0.5rem;
+}
+
+.img-lluvia{
+    height: 40px;
+    width: 42px;
+    margin-left: 10.875rem;
 }
