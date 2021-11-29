@@ -1,9 +1,22 @@
+*{
+    
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+    
+}
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
 .buscador{
     border-top-style: hidden;
     border-right-style: hidden;
     border-left-style: hidden;
     border-bottom-style: hidden;
-    
     width:350px;
     padding: 0 25px;
     height: 48px;
@@ -17,3 +30,90 @@
     opacity: 1;
   }
   
+.contenedor-semana{
+    
+   
+  display: block;
+  overflow-x: scroll;
+  
+  width: 97.5%;
+ margin-top: 1rem;
+ margin-left: 1rem;
+ /* margin-right: 10rem; */
+  
+    
+     
+}
+
+  .scroll1::-webkit-scrollbar {
+    width: 10px;
+    height: 9px;
+    max-width: 100px;
+    
+   
+  }
+  .scroll1::-webkit-scrollbar-track {
+    margin-left: 300px;
+    margin-right: 300px;
+}
+
+.scroll1::-webkit-scrollbar-track-piece {
+ width: 80%
+}
+   
+  .scroll1::-webkit-scrollbar-thumb {
+    background: #24446D;
+    border-radius: 20px;
+ 
+  }
+  
+  .scroll1::-webkit-scrollbar-track {
+    background: white;
+    border-radius: 80px;
+  }
+
+.contenedor-dias{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.contenedor-cards{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.contenedor-general{
+    background-image: url(../static/assets/GIFS/videofinal.gif);
+    background-size: 100%;
+    width: 100vw;
+    height: 100vh;
+    padding-Left:166px;
+    padding-Right:166px;
+    padding-top: 81px;
+    padding-bottom: 81px;
+ 
+  
+}
+
+.texto-ciudad{
+    color: white;
+    font-size: 24px;
+    align-items: left;
+   margin-top: 0.5rem;
+   font-family: "aeonik";
+ 
+  
+}
+.form{
+    position: relative;
+}
+
+.lupa{
+    position: absolute;
+    left: 85%;
+    top: 25%;
+}

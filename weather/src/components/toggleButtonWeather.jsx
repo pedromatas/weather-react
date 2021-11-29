@@ -29,34 +29,37 @@ export default function ToggleButtonWeather(props) {
       exclusive
       onChange={handleChange}style={{
         backgroundColor: "#24446D",
-        padding: "15px",
-        width: "180px",
+        padding: "0.125rem",
+        width:"95px",
+        height:"48px",
         borderRadius: 50,
         display: "flex",
-        justifyContent: "space-between"
+        justifyContent: "center",
+        alignItems:"center"
     }}>
       
     
-      <ToggleButton value="c" className={seleccionado} onClick={seleccionado1} style={{
+      <ToggleButton value="c" selected className={seleccionado} onClick={seleccionado1} style={{
                 borderRadius: 80,
-                backgroundColor: "#232323",
-              
-                height: 35,
-                width:35,
-                fontSize: "2rem",
-                padding:"30px",
+                backgroundColor: "#19304D",
+                marginRight:"10px",
+                height: "35px",
+                width:"35px",
+                fontSize: "1.063rem",
+                padding:"15px",
+                
                 
                 
     }} variant="contained" color="secondary">
 °C
             </ToggleButton>
       <ToggleButton value="f" className={seleccionado2} onClick={seleccionado1} style={{
-                borderRadius: 50,
-                backgroundColor: "#232323",
-                height: 35,
-                width: 35,
-                fontSize: "2rem",
-                padding:"30px"
+                borderRadius: 80,
+                backgroundColor: "#19304D",
+                height: "35px",
+                width: "35px",
+                fontSize: "1.063rem",
+                padding:"15px"
             }} variant="contained" color="secondary">°F</ToggleButton>
       
     </ToggleButtonGroup>
