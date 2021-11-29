@@ -76,9 +76,9 @@ export default function CardDias(props) {
     }
     return (
 
-        <Card color="secondary" sx={{minWidth:"160px",maxWidth:"160px", width: "160px",marginRight:"2.38rem",height:"263px",padding:"20px 21px 0px 21px", background: "#24446D", color: "#EEEEEE",borderRadius:"2rem" }}>
-            <CardActionArea sx={{ display: 'block' }} >
-                <Typography component="div" variant="p" sx={{ display: 'block', fontSize:"19px"}}>
+        <Card color="secondary" sx={{minWidth:"160px",maxWidth:"160px", width: "160px",marginRight:"1.70rem",height:"263px",boxShadow:"box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15)",padding:"20px 21px 0px 21px", background: "#24446D", color: "#EEEEEE",borderRadius:"2rem" }}>
+            <CardActionArea sx={{ display: 'flex',flexDirection:"column",justifyContent:"center",alignItems:"center" }} >
+                <Typography component="div" variant="p" sx={{ display: 'flex',justifyContent:"center",alignItems:"center",flexDirection:"column", fontSize:"19px", fontFamily: "aeonik_regular"}}>
 
                     {fecha(props.dia?.dt).toUpperCase()}
                     <div className="hl"></div>
@@ -89,7 +89,7 @@ export default function CardDias(props) {
                 <Typography component="div" variant="p" sx={{ display: 'flex', justifyContent: 'center'}}>
 
                     <img src={maxIcon} alt="" />
-                    <p >{Math.round(props.dia?.temp.max)}º</p>
+                    <p className="p-temp">{Math.round(props.dia?.temp.max)}º</p>
                    
                 </Typography>
                 <Typography component="div" variant="p" sx={{ display: 'flex', justifyContent: 'center',marginTop:"16px" }}>

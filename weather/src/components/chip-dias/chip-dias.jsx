@@ -29,8 +29,8 @@ export default function ChipDias(props) {
     }
   return (
     <Stack direction="row">
-      <Chip  sx={{ marginRight:"37px",minWidth:"12.7rem",background:"#24446D" , color:"#EEEEEE", width:"11rem",height:"2.75rem",
-       borderRadius:"32px", padding:"10px 10px 14px 10px", fontSize:"17px"}} label={fecha(props.dia?.dt) } />
+      <Chip  sx={{ marginRight:"27px",maxWidth:"10rem",background:"#24446D" , color:"#EEEEEE", width:"11rem",height:"2.75rem",
+       borderRadius:"32px", padding:"10px 10px 14px 10px", fontSize:"15px", fontFamily: "aeonik_regular",boxShadow:" 0px 4.19632px 16.7853px rgba(0, 0, 0, 0.15)"}} label={fecha(props.dia?.dt) } />
     </Stack>
   );
 }

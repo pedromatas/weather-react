@@ -5,14 +5,16 @@
     margin-left: 7px;
 }
 .img-humedad{
-    margin-top: 33.7px;
+    margin-top: 20.7px;
 }
 .contenedor-info{
     display: flex;
+    font-Family: "aeonik"
 }
 .contenedor-texto{
     display: block;
-    margin-left: 54px;
+    margin-left: 44px;
+    font-family: "aeonik"
     
 }
 .icono{

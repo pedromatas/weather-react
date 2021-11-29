@@ -85,16 +85,16 @@ export default function CardGrados(props) {
  
     return (
 
-        <Card color="primary" sx={{ maxWidth: 540,maxHeight:360, backgroundColor: '#24446D', color: '#EEEEEE',borderRadius:"2rem",padding:"1.688rem" }}>
+        <Card color="primary" className="card" sx={{ marginRight:"2rem",maxWidth: 540,minWidth:540,maxHeight:360,minHeight:360, backgroundColor: '#24446D', color: '#EEEEEE',borderRadius:"2rem",padding:"1.5rem",boxShadow:"0px 10px 20px rgba(0, 0, 0, 0.15)" }}>
             <CardActionArea >
-                <Typography component="div" variant="h4" sx={{ display: 'flex', justifyContent: 'space-between', margin: 1,fontSize:"48px" }}>
+                <Typography component="div" variant="h4" sx={{ display: 'flex',fontSize:"48px" ,fontFamily: "aeonik"}}>
                     {capitalizarPrimeraLetra(fecha(props.ciudadHoras.daily?.[0].dt))}
                 </Typography>
 
                 <CardContent>
                     <div className="contenedor-grados">
-                        <Typography gutterBottom variant="h2" component="div" sx={{width:"180px" ,fontSize:"130px"}}>
-                            {Math.round(props.ciudadHoras.current?.temp)}º
+                        <Typography gutterBottom variant="p"className="prueba" component="div" sx={{width:"180px",height:"136px" ,fontSize:"130px",fontFamily: "aeonik_regular"}}>
+                          <p className="prueba">{Math.round(props.ciudadHoras.current?.temp)}°</p>  
 
                         </Typography>
                         <div className="vl"></div>
@@ -110,7 +110,7 @@ export default function CardGrados(props) {
                    
                   <img src={rain} alt="" className="img-lluvia" />
                    
-                    <Typography component="p" sx={{fontSize:"1.5rem"}}>
+                    <Typography component="p" sx={{fontSize:"1.5rem",fontFamily: "aeonik"}}>
                         {Math.round( calculo(props.ciudadHoras.current?.rain?.["1h"]))}mm
                     </Typography>
                 </Typography>

@@ -63,8 +63,8 @@ function Main() {
         console.log(e.target.textCiudad.value)
         setciudad(e.target.textCiudad.value)
         async function fetchData() {
-
-            let prueba = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${e.target.textCiudad.value}&appid=${API}`)
+try {
+       let prueba = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${e.target.textCiudad.value}&lang=es&appid=${API}`)
             let r = await prueba.json();
             setfetch(r)
             console.log(r)
@@ -76,11 +76,18 @@ function Main() {
 
 
 
-            let hourly = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${r.coord.lat}&lon=${r.coord.lon}&units=${temp}&appid=${API}`)
+            let hourly = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${r.coord.lat}&lon=${r.coord.lon}&units=${temp}&lang=es&appid=${API}`)
             let hour = await hourly.json();
             setfetchHora(hour);
             // setprueba2(`http://openweathermap.org/img/wn/${hour.current.weather[0].icon}@2x.png`)
             console.log(hour, 'zimbaue')
+} catch (error) {
+    console.log(error)
+    setciudad('No existe')
+}
+         
+                         
+       
         }
         fetchData()
 
@@ -100,7 +107,7 @@ function Main() {
 
 
 
-            let hourly = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&units=${metrica}&appid=${API}`)
+            let hourly = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&units=${metrica}&lang=es&appid=${API}`)
             let hour = await hourly.json();
             // setprueba2(`http://openweathermap.org/img/wn/${hour.current.weather[0].icon}@2x.png`)
             setfetchHora(hour)
@@ -129,29 +136,32 @@ function Main() {
         <div className="contenedor-general">
           
             <Grid container spacing={2} direction="column">
-                <Grid item container>
+                <Grid item container spacing={1.5}>
 
                     <Grid item xs={1.2} >
                         <ToggleButtonWeather click={handleClick} sx={{height:"48"}}></ToggleButtonWeather>
                     </Grid>
                    
                     <Grid item xs={6} sx={{display:"flex"}}>
-                        <p className="texto-ciudad">{capitalizarPrimeraLetra(ciudad) },{calcfecha(fetchHora.current?.dt)}h</p>
+                        <p className="texto-ciudad">{capitalizarPrimeraLetra(ciudad) }, {calcfecha(fetchHora.current?.dt)}h</p>
 
+                    </Grid>
+                    <Grid item xs={0.8} >
+                       
                     </Grid>
                     <Grid item xs={4}>
                         <form onSubmit={buscador} action="" className="form">
                            
                             <input type="text" name="textCiudad" className="buscador" placeholder="Buscar..." />
                             {/* <button type="submit">Buscador</button> */}
-                             <input type="image" src={lupa} className="lupa"/>
+                             <input type="image" src={lupa} alt="lupa" className="lupa"/>
                         </form>
                     </Grid>
 
                 </Grid>
                 <Grid item container >
 
-                    <Grid item xs={5.4}>
+                    <Grid item xs={6}>
                         <CardGrados ciudad={ciudadDia} ciudadHoras={fetchHora}></CardGrados>
                     </Grid>
                     <Grid item xs={3}>
@@ -163,6 +173,7 @@ function Main() {
                     </Grid>
 
                 </Grid>
+                
                 <div className="contenedor-semana scroll1">
                     
                     <div className="contenedor-dias">

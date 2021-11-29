@@ -41,7 +41,7 @@ export default function ToggleButtonWeather(props) {
     
       <ToggleButton value="c" selected className={seleccionado} onClick={seleccionado1} style={{
                 borderRadius: 80,
-                backgroundColor: "#232323",
+                backgroundColor: "#19304D",
                 marginRight:"10px",
                 height: "35px",
                 width:"35px",
@@ -55,7 +55,7 @@ export default function ToggleButtonWeather(props) {
             </ToggleButton>
       <ToggleButton value="f" className={seleccionado2} onClick={seleccionado1} style={{
                 borderRadius: 80,
-                backgroundColor: "#232323",
+                backgroundColor: "#19304D",
                 height: "35px",
                 width: "35px",
                 fontSize: "1.063rem",

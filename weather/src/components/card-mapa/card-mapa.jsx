@@ -23,10 +23,10 @@ export default function CardMapa(props) {
 
     return (
       
-        <Card color="secondary" sx={{ maxWidth: 255,maxHeight:360, background:"#24446D" , color:"#FFC13D", borderRadius:"2rem",padding: "32px 23px 64px 23px" }}>
+        <Card color="secondary" sx={{ marginLeft:"0.7rem",minWidth:255,maxWidth: 255,maxHeight:360, background:"#24446D" , color:"#FFC13D", borderRadius:"2rem",padding: "12px 13px 34px 23px",boxShadow:"0px 10px 20px rgba(0, 0, 0, 0.15)" }}>
             <CardActionArea sx={{ display: 'block'}} >
                     <img src={gif} alt="" className="gif"/>
-                <Typography component="div" variant="p" sx={{  width:"11.063rem" , marginLeft:"2.3rem" ,fontSize:"19px",marginTop:"14px"}}>
+                <Typography component="div" variant="p" sx={{  width:"11.063rem" , marginLeft:"2.3rem",fontFamily: "aeonik" ,fontSize:"19px",marginTop:"14px"}}>
               
                    Queda 1h 45min para llegar a tu destino
                 </Typography>

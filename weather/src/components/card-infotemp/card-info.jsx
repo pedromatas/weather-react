@@ -20,7 +20,7 @@ export default function CardInfo(props) {
 
     return (
 
-        <Card color="primary" sx={{ maxWidth: 254, maxHeight: "360px", borderRadius: "2rem", padding: "32px 23px 64px 23px", background: "#24446D", color: "#EEEEEE" }}>
+        <Card color="primary" sx={{ marginLeft:"0.7rem",maxWidth: 254,minWidth:254, maxHeight: "360px", borderRadius: "2rem", padding: "32px 23px 64px 23px", background: "#24446D", color: "#EEEEEE",boxShadow:"0px 10px 20px rgba(0, 0, 0, 0.15)" }}>
             <CardActionArea sx={{ display: 'block' }} >
                 {/* <Typography component="div" variant="p" sx={{ height: "46", display: 'flex', justifyContent: 'space-between', margin: 1 }}>
                     <img src={grados} alt="" className="img" />
