@@ -53,8 +53,8 @@ html, body {
    
   }
   .scroll1::-webkit-scrollbar-track {
-    margin-left: 300px;
-    margin-right: 300px;
+    margin-left: 375px;
+    margin-right: 375px;
 }
 
 .scroll1::-webkit-scrollbar-track-piece {
@@ -88,7 +88,7 @@ html, body {
 
 .contenedor-general{
     background-image: url(../static/assets/GIFS/videofinal.gif);
-    background-size: 100%;
+    background-size: 130%;
     width: 100vw;
     height: 100vh;
     padding-Left:166px;
@@ -116,4 +116,11 @@ html, body {
     position: absolute;
     left: 85%;
     top: 25%;
+}
+
+.logo{
+  height: 30px;
+  width: 170px;
+  align-self: flex-end;
+  margin-top: 2rem;
 }

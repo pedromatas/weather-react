@@ -14,7 +14,7 @@ import fondo from "../static/assets/GIFS/videofinal.gif";
 import lupa from "../static/assets/ICONS_1X/RESTO DE ICONOS/Buscar.svg";
 import Aeonik_regular from "../static/assets/TIPOGRAFIA/Aeonik-Regular.woff"
 import Aeonik_bold from "../static/assets/TIPOGRAFIA/Aeonik-Bold.woff"
-
+import logo from "../static/assets/ICONS_1X/RESTO DE ICONOS/logo.svg";
 
 function Main() {
     const [temp, settemp] = useContext(TempContext);
@@ -199,7 +199,8 @@ try {
 
               
                 </div>
-               
+               <img className="logo" src={logo} alt="" />
+
             </Grid>
 
          
