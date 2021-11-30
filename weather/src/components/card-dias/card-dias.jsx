@@ -86,7 +86,7 @@ export default function CardDias(props) {
                     {/* {'\n'+props.ciudadHoras.current?.feels_like}  */}
                    
                 </Typography>
-                <Typography component="div" variant="p" sx={{ display: 'flex', justifyContent: 'center'}}>
+                <Typography component="div" variant="p" sx={{ display: 'flex', justifyContent: 'center',alignText:"center"}}>
 
                     <img src={maxIcon} alt="" />
                     <p className="p-temp">{Math.round(props.dia?.temp.max)}º</p>
