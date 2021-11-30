@@ -9,12 +9,16 @@
 }
 .vl{
     border-left: 2px solid #FFC13D;
-  height: 10.438rem;
+  height: 11.438rem;
   margin-left: 2.875rem;
   
 }
 .prueba{
     font-weight: 500;
+    display: flex;
+
+    justify-self: center;
+    justify-content: center;
 }
 .card-temp-footer{
     display: 'flex';
@@ -30,7 +34,8 @@
     width: 11.5rem;
     margin-left: 2.875rem;
     
-    align-self:auto;
+    align-self:center;
+    justify-self: center;
    
    
 }
