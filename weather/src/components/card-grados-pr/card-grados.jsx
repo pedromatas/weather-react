@@ -33,31 +33,50 @@ export default function CardGrados(props) {
         switch (img) {
             case '01d':
                 return d1;
-           
+             case '01n':
+                return d1;
+               
             case '02d':
                 return d2;
-             
+                case '02n':
+                    return d2;
+                   
             case '03d':
                 return d3;
-           
+                case '03n':
+                    return d3;
+                   
             case '04d':
                 return d4;
-             
+                case '04n':
+                    return d4;
+                   
             case '09d':
                 return d9;
-            
+                case '09n':
+                    return d9;
+                  
+                           
             case '10d':
                 return d10;
-             
+                case '10n':
+                    return d10;
+                   
             case '11d':
                 return d11;
-              
+                case '11n':
+                return d11;
+               
             case '13d':
                 return d13;
-                
+                case '13n':
+                    return d1;
+                    
             case '50d':
                 return d50;
-               
+                case '50n':
+                    return d50;
+                   
             default:
                 break;
         }
